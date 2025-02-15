@@ -1,0 +1,277 @@
+/* Global Reset */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+/* Base Styles */
+.header {
+  width: 100%;
+  background-color: white;
+  padding: 16px;
+  border-bottom: 1px solid #ccc;
+  z-index: 1000; /* Ensure header is above other elements */
+  position: relative;
+}
+
+.header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  font-size: 24px;
+  font-weight: bold;
+  color: #ff6600;
+  text-decoration: none;
+}
+
+.logo .fa-store {
+  margin-right: 10px;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+  margin: 0 20px;
+}
+
+.search-box {
+  width: 50%;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 8px;
+  outline: none;
+}
+
+.search-button {
+  background-color: #ff6600;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  margin-left: 8px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.profile-container {
+  display: flex;
+  align-items: center;
+  color: #ff6600;
+  gap: 16px;
+}
+
+.profile-container a {
+  color: #ff6600;
+  text-decoration: none;
+  margin: 0 5px;
+}
+
+.profile-container a:hover {
+  text-decoration: underline;
+}
+
+.cart-container {
+  display: flex;
+  align-items: center;
+  color: #ff6600;
+  font-weight: bold;
+  margin-left: 20px;
+  gap: 8px;
+}
+
+.menu-button {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #ff6600;
+}
+
+/* Mobile Header */
+.mobile-header {
+  display: none; /* Hide by default */
+  width: 100%; /* Full width */
+  background-color: white;
+  padding: 16px 0; /* Vertical padding only */
+  border-bottom: 1px solid #ccc;
+  box-sizing: border-box; /* Include padding in width calculation */
+  margin: 0; /* Remove any margin */
+  position: relative; /* Ensure it stays in the flow */
+  z-index: 1000; /* Ensure mobile header is above other elements */
+}
+
+.mobile-header .logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #ff6600;
+  text-decoration: none;
+  margin-left: 16px; /* Adjust as needed */
+}
+
+.mobile-header .search-container {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+  margin: 0 10px; /* Adjust as needed */
+}
+
+.mobile-header .search-box {
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 8px;
+  outline: none;
+}
+
+.mobile-header .search-button {
+  background-color: #ff6600;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  margin-left: 8px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.mobile-header .menu-button {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #ff6600;
+  margin-right: 16px; /* Adjust as needed */
+  position: absolute;
+  right: 16px; /* Position it to the right */
+}
+
+/* Sidebar Styles */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0; /* Position it to the left */
+  width: 50%; /* Cover half of the screen */
+  height: 100%;
+  background-color: white;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+  z-index: 2000; /* Ensure sidebar is above other elements */
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  box-sizing: border-box;
+  transform: translateX(-100%); /* Initially hide the sidebar */
+  transition: transform 0.3s ease; /* Smooth transition */
+}
+
+.sidebar.open {
+  transform: translateX(0); /* Show the sidebar */
+}
+
+.sidebar-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.sidebar-content a {
+  color: #ff6600;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.sidebar-content a:hover {
+  text-decoration: underline;
+}
+
+.close-button {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #ff6600;
+  align-self: flex-end;
+}
+
+/* Backdrop Styles */
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1500; /* Ensure backdrop is below sidebar but above other elements */
+}
+
+/* Media Query for Small Screens */
+@media (max-width: 768px) {
+  .header-container {
+    display: none; /* Hide desktop header */
+  }
+
+  .mobile-header {
+    display: flex; /* Show mobile header */
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px; /* Add padding here if needed */
+  }
+
+  .profile-container {
+    display: none; /* Hide profile container in mobile view */
+  }
+
+  .menu-button {
+    display: block; /* Show menu button in mobile view */
+  }
+}
+
+/* Banner Styles */
+.banner {
+  background-color: #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  width: 100%;
+  height: 300px; /* Default height for larger screens */
+}
+
+.banner-placeholder {
+  color: #666;
+}
+
+.banner-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 1200px) {
+  .banner {
+    height: 250px; /* Adjust height for medium screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .banner {
+    height: 200px; /* Adjust height for small screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .banner {
+    height: 150px; /* Adjust height for extra small screens */
+  }
+}
